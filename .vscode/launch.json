@@ -1,0 +1,49 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch Lesson_CompareInt",
+            "request": "launch",
+            "mainClass": "basic.Lesson_CompareInt",
+            "projectName": "Java_2f8d9ffd"
+        },
+        {
+            "type": "java",
+            "name": "Launch Lesson_Float",
+            "request": "launch",
+            "mainClass": "basic.Lesson_Float",
+            "projectName": "Java_2f8d9ffd"
+        },
+        {
+            "type": "java",
+            "name": "Launch Lesson_Hello",
+            "request": "launch",
+            "mainClass": "basic.Lesson_Hello",
+            "projectName": "Java_2f8d9ffd"
+        },
+        {
+            "type": "java",
+            "name": "Launch lesson_hello",
+            "request": "launch",
+            "mainClass": "basic.lesson_hello",
+            "projectName": "Java_2f8d9ffd"
+        },
+        {
+            "type": "java",
+            "name": "Launch test",
+            "request": "launch",
+            "mainClass": "test",
+            "projectName": "Java_2f8d9ffd"
+        }
+    ]
+}

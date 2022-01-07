@@ -7,9 +7,9 @@ public class test {
         // System.out.println("echo: " + in.nextLine());
         int amount = 100;
         int price = 0;
-        System.out.print("请输入票面：");
+        System.out.print("请输入票面: ");
         amount = in.nextInt();
-        System.out.print("请输入金额：");
+        System.out.print("请输入金额: ");
         price = in.nextInt();
         System.out.println(amount +"-" + price + "=" + (amount-price));
 

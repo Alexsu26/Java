@@ -11,3 +11,16 @@
 --------------------
 
 测试gb12上的同步情况
+
+---------------------
+## 一些问题
+
+* 强制类型转换，一般用 *(Elemtype)* 进行，但只针对
+后一位，在下例中(*来自Lesson_GuessNum_rand*)
+```java
+    int number = (int)(Math.random() * 100 + 1);
+    int number = (int)Math.random() * 100 + 1;
+```
+> 其中第一行为正确代码，先将random的数算出来在转化为`int`型;   
+> 而第二行在`Math.random()`前加了`(int)`导致结果只能为0，
+    从而整个式子只能为1；
