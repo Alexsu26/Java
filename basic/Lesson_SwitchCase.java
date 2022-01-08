@@ -2,7 +2,7 @@ package basic;
 
 import java.util.Scanner;
 
-public class Lesson_Switch_Case {
+public class Lesson_SwitchCase {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int type = in.nextInt();
