@@ -86,3 +86,9 @@ int[][] num = {{},{},{}};   //用逗号分隔行
 
 * `this`是成员函数的一个固有的本地变量，它表达了调用
 这个函数的那个对象；更多相关以及构造函数、重载在VendingMachine的注释当中
+
+* 写成：
+    ```java
+    public String toString(){ }
+    ```
+    的成员函数，都可以将对象输出为`[, , , ]`格式，例如`notebook.NoteBook`文件

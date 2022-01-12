@@ -2,7 +2,7 @@ public class VendingMachine {
     int price = 80;
     int balance;          //成员变量默认初始化0
     int total = f();     //访问构造函数前，先创建成员变量，再访问
-                        //构造函数，因此这里f()没有作用，始终会被构造函数初始化为0
+    //构造函数，因此这里f()没有作用，始终会被构造函数初始化为0
 
     VendingMachine()    //构造函数，名字与类相同，没有返回类型
     {
