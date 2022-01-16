@@ -164,5 +164,69 @@ int[][] num = {{},{},{}};   //用逗号分隔行
 > 数据、表现和控制三者分离，各负其责  
 > M = Model        (模型) 保存和维护数据，提供接口让外部修改数据，通知表现需要刷新  
 > V = View         (表现) 从模型获得数据，根据数据画出表现  
-> C = Control      (控制) 从用户得到输入，根据输入调整数据  
-![](C:\Users\l1818\Pictures\Saved Pictures\MVC.svg)
+> C = Control      (控制) 从用户得到输入，根据输入调整数据
+```mermaid
+graph LR
+    B[Model] -- Pic --> A[View]
+    C[Control] -- modify --> B
+    B -- notify --> A
+    
+```
+
+* 捕捉异常  
+```java
+    try{
+    //可能产生异常的代码
+    } catch(Type id1) {
+    //处理Type1异常的代码
+    } catch(Type id2) {
+    //处理Type2异常的代码
+    }      
+```
+
+```mermaid
+graph TD
+    A[exception] --> B{in try?};
+    B -- YES --> C{match catch?};
+    B -- NO --> D{in function?};
+    C -- YES --> E[continue];
+    C -- NO --> F[exit to the outermost braces];
+    D -- YES --> G[return to the caller];
+    D -- NO --> F;
+    G -.-> B;
+    F -.-> B;
+```
+
+* 异常处理
+> `String getMessage()` : 返回异常的信息  
+> `String toString` : 将信息转换为字符串  
+> `void printStackTrace()` : 打印出出现异常的堆栈  
+```java
+//再度抛出    
+    catch(Exception e ) {
+        System.err.println("An exception was thrown");
+        throw e;
+    }   
+```
+
+* 异常声明   
+> 如果函数可能抛出异常，就必须在函数头部加以声明   
+```java
+    void f() throws TooBig, TooSmall, DivZero{}
+    void f() {}
+```
+> 可以声明并不会真的抛出的异常   
+> 抛出的异常可以是任何继承了Throwable类的对象  
+> Exception类继承了Throwable   
+> throw new Exception();  
+> throw new Exception("HELP");
+
+* catch匹配异常  
+> 抛出子类异常会被捕捉父类异常的catch给捉到    
+> 所有异常都继承自Exception，用`catch(Exception e)`可以匹配任何异常   
+> 像`ArrayIndexOutOfBoundsException`的异常是系统异常，不需要声明，但如果没有适当的机制来捕捉，就会导致
+> 程序终止
+
+* 异常声明遇到继承关系  
+> 当覆盖一个函数时，子类不能声明抛出比父类的版本更多的异常 *(子类对象可能向上造型)*  
+> 在子类的构造函数中，必须声明父类可以抛出的全部异常，并且可以超过父类的异常 *(子类构造函数会先调用父类构造函数)*
