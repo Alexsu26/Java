@@ -230,3 +230,37 @@ graph TD
 * 异常声明遇到继承关系  
 > 当覆盖一个函数时，子类不能声明抛出比父类的版本更多的异常 *(子类对象可能向上造型)*  
 > 在子类的构造函数中，必须声明父类可以抛出的全部异常，并且可以超过父类的异常 *(子类构造函数会先调用父类构造函数)*
+
+* 输入输出  
+> 二进制数据采用InputStream/OutputStream  
+> 文本数据采用Reader/Writer  
+
+* 流式文本处理  
+> 一般`PrintWriter`处理的是 *Unicode*编码，  
+> 但是实际可能遇到 *Ascll*或 *utf-8* 的编码，因此通常采用以下方法
+```java
+PrintWriter out = new PrintWriter(
+        new BufferedWriter(
+                new OutputStreamWriter(
+                        new FileOutputStream("文件名"))));
+out.println(某个数据);
+``` 
+> 文本读入一般用  
+```java
+BufferedReader in = new BufferedReader(
+        new InputStreamReader(
+                new FileInputStream("文件名")));
+String line;
+while( (line=in.readLine()) != null ){
+    System.out.println(line);
+}
+```
+
+* 数据的读入  
+```mermaid
+graph TD
+A{is binary?} -- Yes --> B[InputStream]
+A -- No --> C{is txt?}
+C -- Yes --> D[Reader]
+C -- No --> E[Scanner]
+```

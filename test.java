@@ -1,19 +1,37 @@
-import java.util.Scanner;
+import java.io.*;
 
 public class test {
     public static void main(String[] args) {
         System.out.println("Hello World!");
-        Scanner in = new Scanner(System.in);
-        // System.out.println("echo: " + in.nextLine());
-        int amount = 100;
-        int price = 0;
-        System.out.print("请输入票面: ");
-        amount = in.nextInt();
-        System.out.print("请输入金额: ");
-        price = in.nextInt();
-        System.out.println(amount +"-" + price + "=" + (amount-price));
+        byte[] buf = new byte[10];
+        for( int i=0; i<buf.length; i++ )
+        {
+            buf[i] = (byte)i;
+        }
 
+        try{
+            PrintWriter out = new PrintWriter(
+                    new BufferedWriter(
+                            new OutputStreamWriter(
+                                    new FileOutputStream("a.txt")
+                            )
+                    )
+            );
+            int i = 123456;
+            out.println(i);
+            out.close();
 
-        in.close();
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(
+                            new FileInputStream("test.java")
+                    )
+            );
+            String line;
+            while( (line=in.readLine()) != null ){
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
